@@ -1,0 +1,25 @@
+<app-well [key]="clickedKey" (well)="addWell($event)"></app-well><br /><br />
+<h1 #title></h1>
+<div style="text-align: center">
+  <p><b>Please Select Source Key:</b></p>
+  <div class="btn-group" *ngFor="let key of sourceKeys">
+    <br /><button (click)="clickKey(key)">{{ key }}</button>
+  </div>
+</div>
+<br /><br />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let well of wells">
+      <td class="table-text">{{ well.name }}</td>
+      <td [ngClass]="well.type === 'rls' ? 'rls' : 'esp'">{{ well.type }}</td>
+      <td #sourceKey class="table-text">{{ well.sourceKey }}</td>
+    </tr>
+  </tbody>
+</table>

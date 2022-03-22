@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Add Well</h2>
+  <br />
+  <form [formGroup]="wellForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="Name"><b>Name</b></label
+      ><br />
+      <input
+        type="text"
+        placeholder="Enter Name"
+        formControlName="name"
+        class="form-control"
+        required
+      />
+      <span
+        *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+        class="required"
+        >This field is required</span
+      >
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="type"><b>Type</b></label
+      ><br />
+      <input
+        type="text"
+        placeholder="Enter Type"
+        formControlName="type"
+        class="form-control"
+        required
+      /><span
+        *ngIf="type?.errors?.pattern && (name?.dirty || name?.touched)"
+        class="required"
+        >Type must be <b>esp</b> or <b>rls</b></span
+      ><span
+        *ngIf="type?.errors?.required && (type?.dirty || type?.touched)"
+        class="required"
+        >This field is required</span
+      >
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="sourcekey"><b>Source Key</b></label
+      ><br />
+      <input
+        type="text"
+        placeholder="Enter sourcekey"
+        formControlName="sourcekey"
+        class="form-control"
+        readonly
+      /><span
+        *ngIf="sourcekey?.invalid && (sourcekey?.dirty || sourcekey?.touched)"
+        class="required"
+        >Kindly select one source Key</span
+      >
+    </div>
+    <br />
+    <button class="btn btn-success" type="submit">ADD WELL</button>
+  </form>
+</div>
